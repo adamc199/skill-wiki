@@ -75,12 +75,12 @@ class WikipediaSkill(MycroftSkill):
             # writes in inverted-pyramid style, so the first sentence is the
             # most important, the second less important, etc.  Two sentences
             # is all we ever need.
-            lines = 2
+            lines = 5
             summary = wiki.summary(results[0], lines)
             if "==" in summary or len(summary) > 250:
                 # We hit the end of the article summary or hit a really long
                 # one.  Reduce to first line.
-                lines = 1
+                lines = 4
                 summary = wiki.summary(results[0], lines)
 
             # Now clean up the text and for speaking.  Remove words between
