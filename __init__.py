@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#Forked on May 26 2018 by Adam Curry to customize the workings of thsi core skill
+#20180526 // Changed the number of lines read from 2 to 5
+
 import re
 import wikipedia as wiki
 from adapt.intent import IntentBuilder
@@ -75,11 +78,13 @@ class WikipediaSkill(MycroftSkill):
             # writes in inverted-pyramid style, so the first sentence is the
             # most important, the second less important, etc.  Two sentences
             # is all we ever need.
+            #20180526 //changed from 2 to 5 by AC
             lines = 5
             summary = wiki.summary(results[0], lines)
             if "==" in summary or len(summary) > 250:
                 # We hit the end of the article summary or hit a really long
                 # one.  Reduce to first line.
+                #20180526 //changed from 1 to 4 by AC
                 lines = 4
                 summary = wiki.summary(results[0], lines)
 
